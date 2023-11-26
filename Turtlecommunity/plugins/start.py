@@ -62,7 +62,7 @@ async def about_menu(c: Client, cb: CallbackQuery):
     await cb.edit_message_text(text, reply_markup=InlineKeyboardMarkup(keyboard), disable_web_page_preview=True)
 
 @WhiterX.on_callback_query(filters.regex(pattern=r"^lang_menu$"))
-async def infos(client: WhiterX, cb: CallbackQuery):
+async def infos(client: Client, cb: CallbackQuery):
     info_text = await tld(cb.message.chat.id, "Escolha seu idioma:")
     language_flag = "🇧🇷 Português" if lang == "pt" else "🇺🇸 English" if lang == "en" else "🇪🇸 Espanõl"
     button = InlineKeyboardMarkup(
@@ -85,7 +85,7 @@ async def infos(client: WhiterX, cb: CallbackQuery):
     )
 
 @WhiterX.on_callback_query(filters.regex(pattern="^lang\.(.+?)"))
-async def infos(c: WhiterX, cb: CallbackQuery):
+async def infos(c: Client, cb: CallbackQuery):
     try:
         lang = cb.data.split(".")[1]
     except ValueError:
