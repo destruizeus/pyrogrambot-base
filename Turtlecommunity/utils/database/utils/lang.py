@@ -5,7 +5,7 @@ import pathlib
 
 from gpytranslate import Translator
 
-CHAT_LANG = "Turtlecommunity/utils/database/chat_language.json
+CHAT_LANG = "Turtlecommunity/utils/database/chat_language.json"
 STRINGS = "locales/base.yml"
 
 tr = Translator()
