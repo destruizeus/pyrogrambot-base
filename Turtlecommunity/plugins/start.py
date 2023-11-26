@@ -64,7 +64,6 @@ async def about_menu(c: Client, cb: CallbackQuery):
 @Client.on_callback_query(filters.regex(pattern=r"^lang_menu$"))
 async def infos(client: Client, cb: CallbackQuery):
     info_text = await tld(cb.message.chat.id, "Escolha seu idioma:")
-    language_flag = "🇧🇷 Português" if lang == "pt" else "🇺🇸 English" if lang == "en" else "🇪🇸 Espanõl"
     button = InlineKeyboardMarkup(
         [
             [
