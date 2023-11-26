@@ -1,1 +1,1 @@
-from .database.utils.lang import load_language, tld, add_lang #não mexer
+from .database.utils.lang import tld, add_lang #não mexer
