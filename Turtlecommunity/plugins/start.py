@@ -30,7 +30,7 @@ async def start(c: Client, m: Message | CallbackQuery):
     button = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboadButton(
+                InlineKeyboardButton(
                     text=await tld(chat.id, "🌐 Idioma"), callback_data="lang_menu"),
             ],
             [
