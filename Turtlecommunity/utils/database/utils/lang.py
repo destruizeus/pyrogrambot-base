@@ -6,7 +6,6 @@ import pathlib
 from gpytranslate import Translator
 
 CHAT = "Turtlecommunity/utils/database/chat_language.json"
-STRINGS = "locales/base.yml"
 
 tr = Translator()
 
@@ -49,24 +48,7 @@ async def get_chat_lang(gid: int) -> str:
     else:
         return "en"
 
-async def tld(gid: int, string) -> str:
+async def tld(gid: int, text) -> str:
     lang_ = await get_chat_lang(gid)
-    text = language_string.get(f"{lang_}-lang-code").get(string)
     tr_ = await tr.translate(text, targetlang=lang_)
     return tr_
-
-def get_all_files():
-    path = pathlib.Path(STRINGS)
-    return [i.absolute() for i in path.glob("**/*")]
-
-def load_language():
-    all_files = get_all_files()
-    for filepath in all_files:
-        with open(filepath) as f:
-            data = yaml.safe_load(f)
-            language_to_load = data.get("english-lang-code")
-            language_to_load += data.get("espanhol-lang-code")
-            language_to_load += data.get("ukraine-lang-code")
-            language_to_load += data.get("portuguese-lang-code")
-            language_string[language_to_load] = data
-    logging.info("All language Loaded.")
