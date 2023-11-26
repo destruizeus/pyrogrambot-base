@@ -5,6 +5,8 @@ from pyrogram import Client
 from dotenv import load_dotenv
 load_dotenv("config.env")
 
+from .utils import load_language
+
 #Importing From Configs
 
 APP_ID = int(os.environ.get("APP_ID", 6))
@@ -19,6 +21,8 @@ logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s'
 plugins = dict(
     root="Turtlecommunity/plugins",
 )
+
+load_language()
 
 #Finally Defining And Running The Client Turtle
 print("Successfully deployed!")
