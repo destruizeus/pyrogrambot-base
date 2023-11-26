@@ -10,6 +10,8 @@ STRINGS = "locales/base.yml"
 
 tr = Translator()
 
+language_string = {}
+
 # Função para procurar o objeto com o chat_id dado na lista
 def find_lang(chat_id, chat_list):
     for obj in chat_list:
@@ -49,7 +51,7 @@ async def get_chat_lang(gid: int) -> str:
 
 async def tld(gid: int, string) -> str:
     lang_ = await get_chat_lang(gid)
-    text = language_string.get("base").get(string)
+    text = language_string.get(f"{lang_}-lang-code").get(string)
     tr_ = await tr.translate(text, targetlang=lang_)
     return tr_
 
@@ -62,6 +64,9 @@ def load_language():
     for filepath in all_files:
         with open(filepath) as f:
             data = yaml.safe_load(f)
-            language_to_load = data.get("language")
+            language_to_load = data.get("english-lang-code")
+            language_to_load += data.get("espanhol-lang-code")
+            language_to_load += data.get("ukraine-lang-code")
+            language_to_load += data.get("portuguese-lang-code")
             language_string[language_to_load] = data
     logging.info("All language Loaded.")
