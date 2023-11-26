@@ -31,7 +31,7 @@ async def start(c: Client, m: Message | CallbackQuery):
         [
             [
                 InlineKeyboardButton(
-                    text=await tld(chat.id, "⬅️ Voltar"), callback_data="about"),
+                    text=await tld(chat.id, "ℹ️ Sobre"), callback_data="about"),
                 InlineKeyboardButton(
                     text=await tld(chat.id, "📚 Comandos"), callback_data="help_menu"),
             ],
