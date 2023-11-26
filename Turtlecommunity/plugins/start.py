@@ -25,15 +25,15 @@ for modules in glob.glob("Turtlecommunity/plugins/*.py"):
 @Client.on_callback_query(filters.regex(pattern=r"^start_back$"))
 @Client.on_message(filters.command("start"))
 async def start(c: Client, m: Message | CallbackQuery):
-    msg = ("<i>Olá <b>{}</b>!! Meu nome é <b>{}</b>. Estou aqui para divertir seu grupo</i>, <b>Fui feito com a biblioteca Pyrogram baseada na MTProto</b>").format(m.from_user.mention, c.me.first_name)
+    msg = (await tld(chat.id, "<i>Olá <b>{}</b>!! Meu nome é <b>{}</b>. Estou aqui para divertir seu grupo</i>, <b>Fui feito com a biblioteca Pyrogram baseada na MTProto</b>")).format(m.from_user.mention, c.me.first_name)
     chat = m.chat if isinstance(m, Message) else m.message.chat
     button = InlineKeyboardMarkup(
         [
             [
                 InlineKeyboardButton(
-                    text=await tld(chat.id, "about-bnt"), callback_data="about"),
+                    text=await tld(chat.id, "⬅️ Voltar"), callback_data="about"),
                 InlineKeyboardButton(
-                    text="📚 Comandos", callback_data="help_menu"),
+                    text=await tld(chat.id, "📚 Comandos"), callback_data="help_menu"),
             ],
         ]
     )
