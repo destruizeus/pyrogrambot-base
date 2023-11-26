@@ -2,6 +2,7 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 from io import BytesIO
 import requests
+import os
 
 @Client.on_message(filters.command(["ass"], prefixes=["?", "/"]))
 async def ass(c: Client, m: Message):
