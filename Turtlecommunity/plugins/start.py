@@ -25,8 +25,8 @@ for modules in glob.glob("Turtlecommunity/plugins/*.py"):
 @Client.on_callback_query(filters.regex(pattern=r"^start_back$"))
 @Client.on_message(filters.command("start"))
 async def start(c: Client, m: Message | CallbackQuery):
-    msg = (await tld(chat.id, "<i>Olá <b>{}</b>!! Meu nome é <b>{}</b>. Estou aqui para divertir seu grupo</i>, <b>Fui feito com a biblioteca Pyrogram baseada na MTProto</b>")).format(m.from_user.mention, c.me.first_name)
     chat = m.chat if isinstance(m, Message) else m.message.chat
+    msg = (await tld(chat.id, "<i>Olá <b>{}</b>!! Meu nome é <b>{}</b>. Estou aqui para divertir seu grupo</i>, <b>Fui feito com a biblioteca Pyrogram</b>")).format(m.from_user.mention, c.me.first_name)
     button = InlineKeyboardMarkup(
         [
             [
