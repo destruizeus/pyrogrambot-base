@@ -61,7 +61,7 @@ async def about_menu(c: Client, cb: CallbackQuery):
     text = ("<b>— yDixx</b>\n<b>Versão: <i>{}</i>").format("1.0.1")
     await cb.edit_message_text(text, reply_markup=InlineKeyboardMarkup(keyboard), disable_web_page_preview=True)
 
-@WhiterX.on_callback_query(filters.regex(pattern=r"^lang_menu$"))
+@Client.on_callback_query(filters.regex(pattern=r"^lang_menu$"))
 async def infos(client: Client, cb: CallbackQuery):
     info_text = await tld(cb.message.chat.id, "Escolha seu idioma:")
     language_flag = "🇧🇷 Português" if lang == "pt" else "🇺🇸 English" if lang == "en" else "🇪🇸 Espanõl"
@@ -84,7 +84,7 @@ async def infos(client: Client, cb: CallbackQuery):
         reply_markup=button,
     )
 
-@WhiterX.on_callback_query(filters.regex(pattern="^lang\.(.+?)"))
+@Client.on_callback_query(filters.regex(pattern="^lang\.(.+?)"))
 async def infos(c: Client, cb: CallbackQuery):
     try:
         lang = cb.data.split(".")[1]
