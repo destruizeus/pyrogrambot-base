@@ -51,4 +51,4 @@ async def get_chat_lang(gid: int) -> str:
 async def tld(gid: int, text) -> str:
     lang_ = await get_chat_lang(gid)
     tr_ = await tr.translate(text, targetlang=lang_)
-    return tr_
+    return tr_.text
